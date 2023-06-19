@@ -3,7 +3,9 @@
 function load($controller, $action){
 
     try{
+
     $controllerNamespace = "Controller\\$controller";
+    
     if(!class_exists($controllerNamespace)){
         throw new Exception("A $controller não existe!");
     }
@@ -15,18 +17,21 @@ function load($controller, $action){
     }
     
     $controllerInstance->$action();
-}catch(Exception $e){
-  $e->getMessage();
+    }catch(Exception $e){
+        $e->getMessage();
+    }
 }
-}
-
 
 $router = [
     "GET" => [
-        "" => fn() => load("LoginController", "index"),
+        "" => fn() => load("HomeController", "index"),
+        "home" => fn() => load("HomeController", "index"),
+        "listar-api" => fn() => load("ApiController", "list"),
+        // "criar-api" => fn() => load("ApiController", "create"),
+        // "editar-api" => fn() => load("ApiController", "edit"),
+        // "excluir-api" => fn() => load("ApiController", "exclude")
+
     ],
     "POST" => [
-        "" => fn() => load("LoginController", "index"),
-        "/home" => fn() => load("HomeController", "index")
     ],
 ];
