@@ -38,4 +38,24 @@ class GpListController extends Controller
        $responseInArray = json_decode($response);
        return $responseInArray;
     }
+
+    public function getEditClient(){
+        $url = "https://api.sandbox.cloud.galaxpay.com.br/v2/customers/1/{typeId}?startAt=0&limit=100";
+        $authentication = $this->authentication();
+        $response = "<h1 class='text-center'>SERVIÇO TEMPORARIAMENTE INDISPONÍVEL 503</h1>";
+        if(!empty($authentication)){
+            $header = array("Authorization:".$authentication['token_type']." ".$authentication['access_token']);
+            $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CUSTOMREQUEST => 'PUT',
+                CURLOPT_HTTPHEADER => $header,
+            ]);
+            $response = curl_exec($curl);
+            curl_close($curl);
+        }
+       $responseInArray = json_decode($response);
+       return $responseInArray;
+    }
 }
