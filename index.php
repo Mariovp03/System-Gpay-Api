@@ -9,6 +9,7 @@ session_start();
 try{
     
     $uriExplode = explode("/", $_SERVER["REQUEST_URI"]);
+
     $request = $_SERVER['REQUEST_METHOD'];
     
     if(!isset($router[$request])){

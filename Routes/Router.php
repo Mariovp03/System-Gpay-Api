@@ -26,8 +26,9 @@ $router = [
     "GET" => [
         "" => fn() => load("HomeController", "index"),
         "home" => fn() => load("HomeController", "index"),
-        "listar-api" => fn() => load("GpApiController", "list"),
+        "listar-api" => fn() => load("GpListController", "list")
     ],
     "POST" => [
+        "listar-api" => fn() => load("GpListController", "list"),
     ],
 ];
