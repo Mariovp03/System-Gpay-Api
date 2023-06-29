@@ -20,6 +20,7 @@ class GpListController extends Controller
     }
 
     public function getListClient(){
+        var_dump($_POST);
         $url = "https://api.sandbox.cloud.galaxpay.com.br/v2/customers?startAt=0&limit=100";
         $authentication = $this->authentication();
         $response = "<h1 class='text-center'>SERVIÇO TEMPORARIAMENTE INDISPONÍVEL 503</h1>";
@@ -40,7 +41,11 @@ class GpListController extends Controller
     }
 
     public function getEditClient(){
-        $url = "https://api.sandbox.cloud.galaxpay.com.br/v2/customers/1/{typeId}?startAt=0&limit=100";
+        $url = "";
+        var_dump($_POST);
+        foreach($this->getListClient()->Customers as $value){
+            // $url = "https://api.sandbox.cloud.galaxpay.com.br/v2/customers/$value->myId/myId";
+        };
         $authentication = $this->authentication();
         $response = "<h1 class='text-center'>SERVIÇO TEMPORARIAMENTE INDISPONÍVEL 503</h1>";
         if(!empty($authentication)){

@@ -20,7 +20,7 @@
               </a>
             </li>
             <li>
-              <a href="listar-api" class="nav-link text-secondary">
+              <a href="list-api" class="nav-link text-secondary">
                 Listar
               </a>
             </li>
@@ -30,7 +30,7 @@
               </a>
             </li>
             <li>
-              <a href="editar-api" class="nav-link text-secondary">
+              <a href="edit-api" class="nav-link text-secondary">
                 Editar
               </a>
             </li>

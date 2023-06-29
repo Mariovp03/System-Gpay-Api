@@ -31,3 +31,5 @@ try{
 }
 
 include_once 'Views/FooterView.php';
+?>
+<script src="./Views/Assets/Jquery.js"></script>
