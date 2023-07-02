@@ -26,13 +26,13 @@ $router = [
     "GET" => [
         "" => fn() => load("HomeController", "index"),
         "home" => fn() => load("HomeController", "index"),
-        "list-api" => fn() => load("GpListController", "list"),
-        "edit-api" => fn() => load("GpListController", "getEditClient"),
+        "list-api" => fn() => load("GpListController", "index"),
+        "edit-api" => fn() => load("GpEditController", "index"),
+        "delete-api" => fn() => load("GpDeleteController", "index"),
+        "create-api" => fn() => load("GpCreateController", "index"),
     ],
     "POST" => [
-        "list-api" => fn() => load("GpListController", "list"),
-        "edit-api" => fn() => load("GpListController", "getEditClient"),
-        "info-api" => fn() => load("GpListController", "getEditClient"),
-
+        "edit-api" => fn() => load("GpEditController", "index"),
+        "create-api" => fn() => load("GpCreateController", "index"),
     ],
 ];

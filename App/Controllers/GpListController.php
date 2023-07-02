@@ -4,12 +4,12 @@ namespace Controller;
 
 class GpListController extends Controller
 {
-    public function list(){
+    public function index(){
         $this->listView();
     }
     
     public function listView(){
-        $pathHomeTreated = PATH_BASE_VIEW . "ListApiView.php";
+        $pathHomeTreated = PATH_BASE_VIEW . "GpListView.php";
         echo $this->getView(
             $pathHomeTreated ,
             [
@@ -20,7 +20,6 @@ class GpListController extends Controller
     }
 
     public function getListClient(){
-        var_dump($_POST);
         $url = "https://api.sandbox.cloud.galaxpay.com.br/v2/customers?startAt=0&limit=100";
         $authentication = $this->authentication();
         $response = "<h1 class='text-center'>SERVIÇO TEMPORARIAMENTE INDISPONÍVEL 503</h1>";
@@ -40,27 +39,5 @@ class GpListController extends Controller
        return $responseInArray;
     }
 
-    public function getEditClient(){
-        $url = "";
-        var_dump($_POST);
-        foreach($this->getListClient()->Customers as $value){
-            // $url = "https://api.sandbox.cloud.galaxpay.com.br/v2/customers/$value->myId/myId";
-        };
-        $authentication = $this->authentication();
-        $response = "<h1 class='text-center'>SERVIÇO TEMPORARIAMENTE INDISPONÍVEL 503</h1>";
-        if(!empty($authentication)){
-            $header = array("Authorization:".$authentication['token_type']." ".$authentication['access_token']);
-            $curl = curl_init();
-            curl_setopt_array($curl, [
-                CURLOPT_URL => $url,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_CUSTOMREQUEST => 'PUT',
-                CURLOPT_HTTPHEADER => $header,
-            ]);
-            $response = curl_exec($curl);
-            curl_close($curl);
-        }
-       $responseInArray = json_decode($response);
-       return $responseInArray;
-    }
+   
 }
