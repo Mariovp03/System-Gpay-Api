@@ -38,6 +38,4 @@ class GpListController extends Controller
        $responseInArray = json_decode($response);
        return $responseInArray;
     }
-
-   
 }
