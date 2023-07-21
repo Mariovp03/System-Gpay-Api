@@ -21,7 +21,7 @@ class GpDeleteController extends Controller
                 'document' => $this->showClientDeleted()->Customers[0]->document,
                 'email' => $this->showClientDeleted()->Customers[0]->emails[0],
             ]
-        );
+        ); 
     }
 
     public function showClientDeleted()
